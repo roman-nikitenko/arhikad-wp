@@ -1,0 +1,12 @@
+.post {
+  &-featured-image {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    img {
+      width: 100%;
+      aspect-ratio: 2 / 1 ;
+      object-fit: cover;
+    }
+  }
+}

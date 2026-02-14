@@ -1,0 +1,16 @@
+.block-logo {
+  &__link {
+    text-decoration: none;
+    font-weight: 700;
+    color: white();
+
+    span {
+      text-shadow: 0 1px 0 rgba(0,0,0,.4);
+      font-size: 1.875rem;
+    }
+
+    .accent {
+      color: color(green, 500);
+    }
+  }
+}

@@ -1,0 +1,55 @@
+$themeColors: (
+  white: #E0F7F7,
+  black: #000000,
+
+  green: (
+    100: #73d3d3,
+    500: #047857,
+  )
+);
+
+@function white($opacity: 100) {
+  $hex: map-get($themeColors, white);
+
+  // Ensure the value is within 0-100 range
+  $clamped_opacity: max(0, min($opacity, 100));
+
+  @if $clamped_opacity < 100 {
+    @return rgba($hex, $opacity * 0.01);
+  }
+
+  @return $hex;
+}
+
+@function black($opacity: 100) {
+  $hex: map-get($themeColors, black);
+
+  // Ensure the value is within 0-100 range
+  $clamped_opacity: max(0, min($opacity, 100));
+
+  @if $clamped_opacity < 100 {
+    @return rgba($hex, $opacity * 0.01);
+  }
+
+  @return $hex;
+}
+
+@function color($color, $shade, $opacity: 100, $darken: 0) {
+  $color_shades: map-get($themeColors, $color);
+  $hex: map-get($color_shades, $shade);
+
+  // Ensure the value is within 0-100 range
+  $clamped_opacity: max(0, min($opacity, 100));
+  $clamped_darken: max(0, min($darken, 100));
+
+  $color_value: $hex;
+  @if $clamped_darken > 0 {
+    $color_value: darken($hex, $clamped_darken * 1%);
+  }
+
+  @if $clamped_opacity < 100 {
+    @return rgba($color_value, $clamped_opacity * 0.01);
+  }
+
+  @return $color_value;
+}

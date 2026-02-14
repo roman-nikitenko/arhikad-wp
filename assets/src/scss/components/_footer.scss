@@ -1,0 +1,48 @@
+.footer {
+  background-color: color(green, 500, 20);
+
+  &-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    .custom-logo-link {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 18.75rem;
+  }
+
+  &__contacts {
+    display: flex; 
+    flex-direction: column;
+    gap: 0.5rem;
+  } 
+
+  &-menu {
+    .menu-item {
+      & + .menu-item {
+        margin-top: 0.5rem;
+      }
+
+      a {
+        color: white();
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+          text-underline-offset: 0.2em;
+          text-decoration-thickness: 1px;
+        }
+      } 
+    }
+  }
+}

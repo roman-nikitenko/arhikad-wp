@@ -1,0 +1,127 @@
+$heading_calibers: (
+  xl,
+  l,
+  m,
+  s,
+  xs,
+  2xs
+);
+
+@mixin heading($caliber: xl) {
+  font-family: var(--font-family-primary);
+  font-weight: 700;
+  letter-spacing: var(--opt-letter-spacing);
+
+  @if $caliber ==xl {
+    // h1
+    font-size: 2.25rem;
+    line-height: 1.11;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @else if $caliber ==l {
+    // h2
+    font-size: 1.75rem;
+    line-height: 1.28;
+    margin-top: 2rem;
+  }
+
+  @else if $caliber ==m {
+    // h3
+    font-size: 1.25rem;
+    line-height: 1.20;
+    margin-top: 1.5rem;
+  }
+
+  @else if $caliber ==s {
+    // h4
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+  }
+
+  @else if $caliber ==xs {
+    // h5
+    font-size: 0.875rem;
+    line-height: 1.43;
+  }
+
+  @else if $caliber ==2xs {
+    // h6
+    font-size: 0.75rem;
+    line-height: 1.33;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1 {
+  @include heading(xl);
+}
+
+h2 {
+  @include heading(l);
+}
+
+h3 {
+  @include heading(m);
+}
+
+h4 {
+  @include heading(s);
+}
+
+h5,
+h6 {
+  @include heading(xs);
+}
+
+@each $caliber in $heading_calibers {
+  .heading--#{$caliber},
+  .has-heading-#{$caliber}-font-size {
+    @include heading($caliber);
+  }
+}
+
+/* Paragraph sizing */
+
+$paragraph_calibers: (
+  m,
+  s
+);
+
+@mixin paragraph($caliber: m) {
+  margin-bottom: 1em;
+  font-family: var(--font-family-primary);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @if $caliber ==m {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @else if $caliber ==s {
+    font-size: 0.75rem;
+    line-height: 1.33;
+  }
+}
+
+@each $caliber in $paragraph_calibers {
+  .has-text-#{$caliber}-font-size {
+    @include paragraph($caliber);
+  }
+}
+
+p {
+  @include paragraph();
+}

@@ -1,0 +1,24 @@
+@import 'normalize';
+@import 'variables';
+@import 'color';
+@import 'fonts';
+@import 'main.scss';
+
+// Theme
+@import 'theme/colors';
+@import 'theme/icons';
+
+// Components
+@import 'components/navigation';
+@import 'components/rich-header';
+@import 'components/header';
+@import 'components/service-card';
+@import 'components/faq';
+@import 'components/footer';
+@import 'components/block-logo';
+@import 'components/projects-list';
+@import 'components/project_card';
+
+// Blocks
+@import 'blocks/columns';
+@import 'blocks/typography';

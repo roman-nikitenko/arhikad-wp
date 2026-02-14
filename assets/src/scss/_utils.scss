@@ -1,0 +1,13 @@
+@mixin stretched-link {
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+  }
+}
+
+.stretched-link {
+  @include stretched-link();
+}
