@@ -17,7 +17,7 @@ jobs:
     - name: 📂 Sync Files
       uses: SamKirkland/web-deploy@v1
       with:
-        target-server: server309.namecheaphosting.com
+        target-server: arhiqzrd@server309.namecheaphosting.com
         remote-user: arhiqzrd
         private-ssh-key: ${{ secrets.SSH_KEY }}
         destination-path: /home/arhiqzrd/public_html/wp-content/themes/arhikad/
