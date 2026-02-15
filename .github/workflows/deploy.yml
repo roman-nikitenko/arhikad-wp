@@ -13,26 +13,6 @@ jobs:
     steps:
     - name: 🚚 Get Latest Code
       uses: actions/checkout@v3
-
-    - name: Test SSH connection
-      run: |
-        set -e
-        mkdir -p ~/.ssh
-        chmod 700 ~/.ssh
-
-        # Write private key (strip \r to avoid "error in libcrypto")
-        # If it still fails, re-save the secret as base64: run "base64 -w 0 your_key_file" and use SSH_KEY_B64 + decode below
-        printf '%s\n' "${{ secrets.SSH_KEY }}" | tr -d '\r' > ~/.ssh/arhikad_rsa
-        chmod 600 ~/.ssh/arhikad_rsa
-
-        # Validate private key format (fails if key is invalid or empty)
-        ssh-keygen -y -f ~/.ssh/arhikad_rsa > /dev/null
-
-        # Add host to known_hosts (avoids StrictHostKeyChecking=no)
-        ssh-keyscan -p 21098 server309.namecheaphosting.com >> ~/.ssh/known_hosts 2>/dev/null
-
-        # Test connection
-        ssh -p 21098 arhiqzrd@server309.namecheaphosting.com "echo 'SSH connection OK'"
     
     - name: 📂 Sync Files
       uses: SamKirkland/web-deploy@v1
