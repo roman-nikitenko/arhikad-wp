@@ -1,24 +1,37 @@
-name: Publish Website
+name: Deploy to cPanel
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
-  web-deploy:
-    name: 🚀 Deploy Website Every Commit
+  deploy:
+    name: Deploy theme to cPanel
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get Latest Code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync Files
-      uses: SamKirkland/web-deploy@v1
-      with:
-        target-server: 66.29.141.4
-        remote-user: arhiqzrd
-        ssh-port: 21098
-        private-ssh-key: ${{ secrets.SSH_KEY }}
-        destination-path: /home/arhiqzrd/public_html/wp-content/themes/arhikad/
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH and deploy
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          set -e
+          SSH_HOST="66.29.141.4"
+          SSH_USER="arhiqzrd"
+          SSH_PORT="21098"
+          DEPLOY_PATH="/home/arhiqzrd/public_html/wp-content/themes/arhikad/"
+
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+          rsync -e "ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key -p $SSH_PORT" \
+            --archive --verbose --compress --delete-after \
+            --exclude='.git' --exclude='.gitignore' --exclude='.github' \
+            --exclude='README.md' --exclude='readme.md' --exclude='.DS_Store' --exclude='*.log' \
+            ./ "${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}"
+
+          rm -f ~/.ssh/deploy_key
