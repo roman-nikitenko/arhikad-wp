@@ -19,5 +19,6 @@ jobs:
       with:
         target-server: 66.29.141.4
         remote-user: arhiqzrd
+        ssh-port: 21098
         private-ssh-key: ${{ secrets.SSH_KEY }}
         destination-path: /home/arhiqzrd/public_html/wp-content/themes/arhikad/
