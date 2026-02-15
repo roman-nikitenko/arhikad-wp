@@ -21,14 +21,14 @@ jobs:
         chmod 700 ~/.ssh
 
         # Write and secure the private key
-        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
+        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/arhikad_rsa
+        chmod 600 ~/.ssh/arhikad_rsa
 
         # Validate private key format (fails if key is invalid or empty)
-        ssh-keygen -y -f ~/.ssh/id_ed25519 > /dev/null
+        ssh-keygen -y -f ~/.ssh/arhikad_rsa > /dev/null
 
         # Add host to known_hosts (avoids StrictHostKeyChecking=no)
-        ssh-keyscan -p 21098 server309.namecheaphosting.com >> ~/.ssh/known_hosts 2>/dev/null
+        ssh-keyscan -p 21098 server309.namecheaphosting.com >> ~/.ssh/arhikad_rsa 2>/dev/null
 
         # Test connection
         ssh -p 21098 arhiqzrd@server309.namecheaphosting.com "echo 'SSH connection OK'"
