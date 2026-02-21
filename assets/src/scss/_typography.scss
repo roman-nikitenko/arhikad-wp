@@ -12,7 +12,12 @@ $heading_calibers: (
   font-weight: 700;
   letter-spacing: var(--opt-letter-spacing);
 
-  @if $caliber ==xl {
+  @if $caliber == 2xl {
+    font-size: 2.75rem;
+    line-height: 1.11;
+  }
+
+  @else if $caliber ==xl {
     // h1
     font-size: 2.25rem;
     line-height: 1.11;

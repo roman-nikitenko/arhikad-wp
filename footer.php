@@ -5,6 +5,11 @@
  * @package banzaifun
  */
 
+$phone_number    = get_option( 'arhikad_phone_number', '' );
+$tel_href_number = preg_replace( '/[\s\-\(\)]/', '', $phone_number );
+$address         = get_option( 'arhikad_address', '' );
+$email           = get_option( 'arhikad_email', '' );
+
 ?>
 	<footer id="main-footer" class="footer">
 		<div class="main-container footer-container">
@@ -24,7 +29,7 @@
 									'container'       => null,
 									'container_class' => null,
 									'container_id'    => null,
-									'fallback_cb'    => 'arhikad_fallback_menu',
+									'fallback_cb'     => 'arhikad_fallback_menu',
 								)
 							);
 							?>
@@ -32,9 +37,13 @@
 				</div>
 			</div>
 			<div class="footer__contacts">
-				<span>arhicadnv@ukr.net</span>
-				<span>(098) 005 54 04</span>
-				<span>Вул Героїв Майдану 15 офіс 58, м.Буча</span>
+				<a href="mailto:<?php echo esc_attr( strtolower( $email ) ); ?>"><?php echo esc_html( $email ); ?></a>
+				<a href="tel:<?php echo esc_attr( $tel_href_number ); ?>">
+					<?php echo esc_html( $phone_number ); ?>
+				</a>
+				<a href="https://maps.app.goo.gl/u3heVq8GeEAA8aRX7" target="_blank" rel="noopener noreferrer">
+					<?php echo esc_html( $address ); ?>
+				</a>
 			</div>
 		</div>
 	</footer>

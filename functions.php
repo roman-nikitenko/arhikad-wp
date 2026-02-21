@@ -106,6 +106,7 @@ add_action(
 function arhikad_register_blocks() {
 	$block_dirs = array(
 		get_template_directory() . '/gb-blocks/latest-project/latest-project.php',
+
 	);
 
 	foreach ( $block_dirs as $block_file ) {
@@ -115,6 +116,8 @@ function arhikad_register_blocks() {
 	}
 }
 add_action( 'after_setup_theme', 'arhikad_register_blocks' );
+
+require_once get_template_directory() . '/inc/general-settings.php';
 
 function get_project_icon( $icon_name ) {
 	$icons = array(

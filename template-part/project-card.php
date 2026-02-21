@@ -16,17 +16,7 @@
 			<a class="stretched-link" href="<?php echo esc_url( $project_permalink ); ?>">
 				<?php echo esc_html( $project_name ); ?>
 			</a>
-			<div class="project-card__type">
-				<img
-					class="project-card__type-icon"
-					src="<?php echo esc_url( get_project_icon( 'сonstruction' ) ); ?>"
-					alt=""
-					role="presentation"
-					width="24"
-					height="24"
-				>
-				<span class="project-card__type-name">Дизайн</span>
-			</div>
+
 		</div>
 	</div>
 <?php endif ?>

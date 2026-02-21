@@ -3,6 +3,7 @@
 @import 'color';
 @import 'fonts';
 @import 'main.scss';
+@import 'typography';
 
 // Theme
 @import 'theme/colors';
@@ -17,8 +18,6 @@
 @import 'components/footer';
 @import 'components/block-logo';
 @import 'components/projects-list';
-@import 'components/project_card';
 
 // Blocks
 @import 'blocks/columns';
-@import 'blocks/typography';

@@ -34,17 +34,12 @@
 									'container'       => null,
 									'container_class' => null,
 									'container_id'    => null,
-									'fallback_cb'    => 'arhikad_fallback_menu',
+									'fallback_cb'     => 'arhikad_fallback_menu',
 								)
 							);
 							?>
 					</nav>
 				</div>
-				<div class="contacts">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viber.svg' ); ?>" alt="viber">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/telegram.svg' ); ?>" alt="telegram">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/whatsapp.svg' ); ?>" alt="whatsapp">
-					<a href="tel:+1234567890">(098) 005 54 04</a>
-				</div>
+				<?php get_template_part( 'template-part/contacts' ); ?>
 			</div>
 		</header>

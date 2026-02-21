@@ -1,5 +1,5 @@
 .rich-header {
-  background-image: url("/wp-content/themes/arhikad/assets/images/arhicadnv.jpg");
+  background-image: --bg-image;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -20,6 +20,10 @@
     z-index: 1;
   }
 
+  &__title {
+    @include heading(2xl);
+  }
+
   &__container {
     display: flex;
     max-width: var(--max-w-container);
@@ -34,11 +38,6 @@
     color: white;
     z-index: 10;
     padding-bottom: 3rem;
-    
-    h1 {
-      font-size: 4.5rem;
-      line-height: 1;
-      margin-bottom: 2rem;
-    }
+  
   }
 }
