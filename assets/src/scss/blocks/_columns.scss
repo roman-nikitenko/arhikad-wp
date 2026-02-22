@@ -2,12 +2,14 @@
   margin-top: 6.25rem;
   margin-bottom: 6.25rem;
 
+  &:first-child {
+    margin-top: 0;
+  }
+
   @include screen(sm) {
     margin-top: 2rem;
     margin-bottom: 2rem;
     
-    &:first-child {
-      margin-top: 0;
-    }
+    
   }
 }
