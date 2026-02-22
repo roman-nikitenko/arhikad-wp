@@ -1,0 +1,9 @@
+ul {
+  &.wp-block-list {
+    li {
+      & + li {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+}

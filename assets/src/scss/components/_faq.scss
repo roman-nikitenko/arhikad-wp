@@ -41,9 +41,10 @@
     p {
       padding: 1rem;
       margin-top: 0;
-      // margin-top: 1rem;
-      // padding-top: 1rem;
-      // border-top: 1px solid black(20);
     }
   }
+}
+
+details + details {
+  margin-top: 1.25rem !important;
 }
