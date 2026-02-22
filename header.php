@@ -22,7 +22,12 @@
 	?>
 		<header class="header">
 			<div class="main-header">
-				<?php get_template_part( 'template-part/block', 'logo' ); ?>
+				<div class="main-header__mobile-block">
+					<?php get_template_part( 'template-part/block', 'logo' ); ?>
+					<button class="main-header__button" type="button">
+						<span class="sr-only">Burger button</span>
+					</button>
+				</div>
 				<div class="navigation">
 					<nav class="main-navigation">
 						<?php
@@ -41,5 +46,6 @@
 					</nav>
 				</div>
 				<?php get_template_part( 'template-part/contacts' ); ?>
+				
 			</div>
 		</header>

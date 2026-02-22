@@ -8,6 +8,16 @@
   -webkit-backdrop-filter: blur(4px);
   z-index: 10;
   background-color: color(green, 500, 20);
+  transition: height 250ms ease;
+
+  @include screen(sm) {
+    height: 3rem;
+    overflow: hidden;
+
+    &:has(.active) {
+      height: 100%;
+    }
+  }
 
   .custom-logo {
     width: 4rem;
@@ -19,6 +29,48 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    @include screen(sm) {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    &__button {
+      display: none;
+      min-width: 2rem;
+      height: 2rem;
+      background-color: transparent;
+      border: 0;
+      background: $burger;
+      background-size: cover;
+      background-position: center;
+  
+      @include screen(sm) {
+        display: block;
+      }
+    }
+
+    &.active {
+      .main-header__button {
+        min-width: 2rem;
+        height: 2rem;
+        background: $close;
+        background-size: cover;
+      background-position: center;
+      }
+    }
+
+    &__mobile-block {
+      align-items: center;
+      display: flex;
+      @include screen(sm) {
+        
+        justify-content: space-between;
+        
+        width: 100%;
+      }
+    }
 
     &__link {
       text-decoration: none;
@@ -40,19 +92,32 @@
       align-items: center;
       gap: 8px;
       
+
+      @include screen(sm) {
+        width: 100%;
+        @include heading(l);
+        margin: 0;
+        font-weight: 400;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+      }
+      
       a {
         text-decoration: none;
         color: white();
       }
-    }
 
-    @include main-container;
-    .contacts {
       img {
         width: 1rem;
         height: 1rem;
+
+        @include screen(sm) {
+          display: none
+        }
       }
     }
+
+    @include main-container;
 
     .primary-menu {
       display: flex;

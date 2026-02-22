@@ -1,0 +1,12 @@
+.post-article {
+  padding-top: 2rem;
+  margin-bottom: 2.5rem;
+
+  body:has(.rich-header) & {
+    padding-top: 2rem;
+  };
+
+  @include screen(sm) {
+    padding-top: 4rem;
+  }
+}

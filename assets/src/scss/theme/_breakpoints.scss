@@ -1,0 +1,30 @@
+$breakpoints: (
+  xs: 480,
+  sm: 768,
+  md: 1000,
+  lg: 1200,
+);
+
+@mixin screen($size) {
+  @if map-has-key($breakpoints, $size) {
+    $value: map-get($breakpoints, $size);
+    @media (max-width: #{$value}px) {
+      @at-root #{&} {
+        @content;
+      }
+    }
+  } @else {
+    @warn "Breakpoint '#{$size}' not found in \$breakpoints map.";
+  }
+}
+
+@mixin screen-up($size) {
+  @if map-has-key($breakpoints, $size) {
+    $value: map-get($breakpoints, $size);
+    @media (min-width: #{$value}px) {
+      @at-root #{&} {
+        @content;
+      }
+    }
+  }
+}

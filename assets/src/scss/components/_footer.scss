@@ -8,6 +8,10 @@
     display: flex;
     justify-content: space-between;
 
+    @include screen(sm) {
+      flex-direction: column;
+    }
+
     .custom-logo-link {
       width: 3.5rem;
       height: 3.5rem;
@@ -38,14 +42,29 @@
   } 
 
   &-menu {
+    @include screen(sm) {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
     .menu-item {
       & + .menu-item {
         margin-top: 0.5rem;
+
+        @include screen(sm) {
+          margin-top: 1rem;
+        }
       }
 
       a {
         color: white();
         text-decoration: none;
+
+        @include screen(sm) {
+          @include heading(m);
+          margin: 0;
+          font-weight: 400;
+        }
         
         &:hover {
           text-decoration: underline;

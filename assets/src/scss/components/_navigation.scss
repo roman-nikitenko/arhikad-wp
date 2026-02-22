@@ -1,13 +1,33 @@
 .navigation {
+ 
+  @include screen(sm) {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+  } 
+
   .primary-menu {
     display: flex;
     align-items: center;
     gap: 2.5rem;
 
+    @include screen(sm) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+
     li {
       a {
         text-decoration: none;
         color: white();
+
+        @include screen(sm) {
+          @include heading(l);
+          margin: 0;
+          font-weight: 400;
+        }
       }
     }
   }

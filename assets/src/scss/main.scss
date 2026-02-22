@@ -21,11 +21,6 @@ body {
   @include main-container;
 }
 
-.post-article {
-  padding-top: 5rem;
-  margin-bottom: 2.5rem;
-}
-
 @mixin full-w {
   width: 100vw;
   margin-left: calc(50vw * -1) !important;
