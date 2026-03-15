@@ -1,0 +1,15 @@
+.wp-block-image,
+.wp-block-post-featured-image {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  &.alignleft {
+      float: left;
+      padding: .5em 1em .5em 0;
+    }
+  
+    &.alignright {
+      float: right;
+      padding: .5em 0 .5em 1em;
+    }
+}

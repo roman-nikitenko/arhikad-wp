@@ -3,12 +3,11 @@
   top: var(--wp-admin--admin-bar--height, 0);
   left: 0;
   right: 0;
-  background-color: hsla(0,0%,100%,.1);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 10;
-  background-color: color(green, 500, 20);
   transition: height 250ms ease;
+  background-color: black(10);
 
   @include screen(sm) {
     height: 3rem;

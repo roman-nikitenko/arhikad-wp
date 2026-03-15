@@ -10,7 +10,7 @@
     }
 
     .accent {
-      color: color(green, 500);
+      color: var( --accent );
     }
   }
 }
